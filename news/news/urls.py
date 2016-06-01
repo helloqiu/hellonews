@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from newspost.views import index, view_post
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$', index),
+    url(r'^news/(?P<slug>[^\.]+).html', view_post, name='view_news_post')
 ]

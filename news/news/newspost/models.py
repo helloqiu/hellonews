@@ -4,8 +4,16 @@ from django.db import models
 from django.db.models import permalink
 
 
+class NewsColumn(models.Model):
+    title = models.CharField(max_length=100, unique=True)
+
+    def __unicode__(self):
+        return '%s' % self.title
+
+
 class NewsPost(models.Model):
     title = models.CharField(max_length=100, unique=True)
+    column = models.ForeignKey(NewsColumn, null=False, default='default')
     author = models.CharField(max_length=100, unique=True)
     slug = models.CharField(max_length=100, unique=True)
     body = models.TextField()
