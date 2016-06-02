@@ -8,5 +8,32 @@
   <script src="//cdn.bootcss.com/materialize/0.97.6/js/materialize.min.js"></script>
 </head>
 
-{% block content %}{% endblock %}
+{% block content %}
+<ul id="nav-mobile" class="side-nav fixed" style="transform: translateX(0%);">
+  <li class="logo">
+    <a href="#" id="logo-container">
+      <img src="/static/logo.png" alt="" id="font-page-logo">
+    </a>
+  </li>
+  <ul class="collapsible collapsible-accordion">
+    <li class="bold">
+      <a class="collapsible-header waves-effect waves-teal">Column</a>
+      <div class="collapsible-body">
+        <ul>
+          {% for column in columns %}
+          <li class="bold"><a href="#">{{column.title}}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+    </li>
+  </ul>
+</ul>
+
+<nav>
+  <div class="nav-wrapper">
+    <a href="#" class="brand-logo" style="margin-left: 260px">Welcome to Hello News</a>
+  </div>
+</nav>
+
+{% endblock %}
 </html>

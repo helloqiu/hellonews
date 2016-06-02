@@ -1,4 +1,4 @@
-from django.shortcuts import render, render_to_response, get_object_or_404
+from django.shortcuts import render_to_response, get_object_or_404
 from models import NewsPost, NewsColumn
 
 
@@ -9,7 +9,7 @@ def index(request):
     })
 
 
-def view_post(request, slug):
-    return render_to_response('news_post_detail.html', {
-        'post': get_object_or_404(NewsPost, slug=slug)
+def view_post(request, **kwargs):
+    return render_to_response('news_view.html', {
+        'post': get_object_or_404(NewsPost, slug=kwargs['slug'])
     })

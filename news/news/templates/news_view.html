@@ -4,14 +4,12 @@
 
 {% block content %}
 {{ super() }}
-{% for post in posts %}
 <div class="card" style="margin-left: 240px">
   <div class="card-content">
-    <span class="card-title"><a href="{{ post.get_absolute_url() }}">{{ post.title }}</a></span>
+    <span class="card-title">{{ post.title }}</span>
     <small>{{ post.author + "@" + post.column.title}}</small>
-    <p>{{ post.body[:50] }}</p>
+    <p>{{ post.body }}</p>
   </div>
 </div>
-{% endfor %}
 
 {% endblock %}
