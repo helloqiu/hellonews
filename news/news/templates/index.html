@@ -1,0 +1,42 @@
+{% extends 'Base.html' %}
+
+{% block title %}Hello News {% endblock %}
+
+{% block content %}
+<ul id="nav-mobile" class="side-nav fixed" style="transform: translateX(0%);">
+  <li class="logo">
+    <a href="#" id="logo-container">
+      <img src="/static/logo.png" alt="" id="font-page-logo">
+    </a>
+  </li>
+  <ul class="collapsible collapsible-accordion">
+    <li class="bold">
+      <a class="collapsible-header waves-effect waves-teal">Column</a>
+      <div class="collapsible-body">
+        <ul>
+          {% for column in columns %}
+          <li class="bold"><a href="#">{{column.title}}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+    </li>
+  </ul>
+</ul>
+
+<nav>
+  <div class="nav-wrapper">
+    <a href="#" class="brand-logo" style="margin-left: 260px">Welcome to Hello News</a>
+  </div>
+</nav>
+
+{% for post in posts %}
+<div class="card" style="margin-left: 240px">
+  <div class="card-content">
+    <span class="card-title">{{ post.title }}</span>
+    <small>{{ post.author + "@" + post.column.title}}</small>
+    <p>{{ post.body[:50] }}</p>
+  </div>
+</div>
+{% endfor %}
+
+{% endblock %}

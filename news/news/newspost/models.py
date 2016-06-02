@@ -24,4 +24,4 @@ class NewsPost(models.Model):
 
     @permalink
     def get_absolute_url(self):
-        return 'view_news_post', None, {'slug': self.slug}
+        return 'view_post', None, {'slug': self.slug}

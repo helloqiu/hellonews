@@ -1,10 +1,11 @@
 from django.shortcuts import render, render_to_response, get_object_or_404
-from models import NewsPost
+from models import NewsPost, NewsColumn
 
 
 def index(request):
     return render_to_response('index.html', {
-        'posts': NewsPost.objects.all()[:5]
+        'posts': NewsPost.objects.all()[:5],
+        'columns': NewsColumn.objects.all(),
     })
 
 
