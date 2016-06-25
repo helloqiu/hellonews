@@ -9,19 +9,20 @@
 </head>
 
 {% block content %}
+{% if index %}
 <ul id="nav-mobile" class="side-nav fixed" style="transform: translateX(0%);">
   <li class="logo">
-    <a href="#" id="logo-container">
+    <a href="/" id="logo-container">
       <img src="/static/logo.png" alt="" id="font-page-logo">
     </a>
   </li>
   <ul class="collapsible collapsible-accordion">
     <li class="bold">
-      <a class="collapsible-header waves-effect waves-teal">Column</a>
+      <a class="collapsible-header waves-effect waves-teal active">Column</a>
       <div class="collapsible-body">
         <ul>
           {% for column in columns %}
-          <li class="bold"><a href="#">{{column.title}}</a></li>
+          <li class="bold"><a href="/?column={{column.title}}">{{column.title}}</a></li>
           {% endfor %}
         </ul>
       </div>
@@ -34,6 +35,13 @@
     <a href="#" class="brand-logo" style="margin-left: 260px">Welcome to Hello News</a>
   </div>
 </nav>
-
+{% endif %}
+{% if view %}
+<nav>
+  <div class="nav-wrapper">
+    <a href="/" class="brand-logo" style="padding-left: 10px;">Welcome to Hello News</a>
+  </div>
+</nav>
+{% endif %}
 {% endblock %}
 </html>

@@ -1,3 +1,5 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 """news URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -22,6 +24,6 @@ from django.conf.urls.static import static
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', index),
-    url(r'^news/(?P<slug>[^\.]+).html', view_post, name='view_news_post')
+    url(r'^news/(?P<slug>[^\.]+).html', view_post, name='view_news_post'),
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
